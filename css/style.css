@@ -101,3 +101,7 @@ article .quiz-body {
   display: flex;
   align-items: center;
 }
+
+.hidden {
+  display: none;
+}
