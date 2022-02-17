@@ -1,19 +1,38 @@
 
-function userQuizzes(){
-    
+console.log(objectYourQuiz);
+
+//const quizzUsersKey = "quizzes";
+
+function usersQuizzes(){
+
+    const quizzes = document.querySelector('.quizzes-created');
+    quizzes.innerHTML = '';
+
+    if(objectYourQuiz.length === 0){
+        const userQuizz = document.querySelector('.create-quizz');
+        userQuizz.classList.remove('hidden');
+    }else{
+        const userQuizz = document.querySelector('.created-quizzes');
+        userQuizz.classList.remove('hidden');
+
+        for(let i = 0; i < objectYourQuiz.length; i++){
+            quizzes.innerHTML += `
+            <div class="quizzes-list">
+                <img src="${objectYourQuiz[i].image}">
+                <div class="overlay"></div>
+                <div class="title">${objectYourQuiz[i].title}</div>
+            </div>
+            `
+        }
+    }
 }
 
-function quizzesCreated(){
-    const userQuizz = document.querySelector('.created-quizzes');
-    userQuizz.classList.remove('hidden');
-}
-
-function noQuizzes(){
-    const userQuizz = document.querySelector('.create-quizz');
-    userQuizz.classList.remove('hidden');
-}
-
+//usersQuizzes();
 getQuizzes();
+
+// localStorage.setItem("nome", "João");
+// const pessoa = localStorage.getItem("nome", "João");
+// console.log(pessoa);
 
 function getQuizzes(){
     const promise = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes');

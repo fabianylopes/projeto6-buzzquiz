@@ -1,5 +1,6 @@
 const BUZZQUIZZ_API = "https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes";
 
+let objectYourQuiz = {};
 
 function YourQuizInfo() {
     let tela3 = document.querySelector('.your-quiz');
@@ -41,7 +42,7 @@ function YourQuizInfo() {
 
     
 
-    let objectYourQuiz = {
+    objectYourQuiz = {
         title: yourQuizzTittle,
         image: yourQuizzURL,
         questions: [
