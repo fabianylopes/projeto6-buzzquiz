@@ -19,18 +19,38 @@
 <body>
     <header>BuzzQuizz</header>
     <div class="container">
-    <!--Layout TELA1 - Lista de quizzes-->
+        <!--Layout TELA1 - Lista de quizzes-->
         
-        <article class="screen-one hidden">
+        <article class="screen-one">
+
             <div class="user-quizzes">
-                <div class="create-quizz">
-                    <h1>Você não criou nenhum<br> quizz ainda :(</h1>
-                    <button>Criar Quizz</button>
+
+                <div class="created-quizzes hidden">
+                    <div class="top">
+                        <div class="header">Seus Quizzes</div>
+                        <img onclick="createQuizz()" src="./assets/plus.png">
+                    </div>
+                    <div class="quizzes-created">
+                        <div class="quizzes-list">
+                            <img src="https://rollingstone.uol.com.br/media/_versions/bob-esponja-lgbtq-reprod_widelg.jpg">
+                            <div class="overlay"></div>
+                            <div class="title">Title</div>
+                        </div>
+                    </div>
                 </div>
+                    
+                <div class="create-quizz hidden">
+                    <h1>Você não criou nenhum<br> quizz ainda :(</h1>
+                    <button onclick="createQuizz()">Criar Quizz</button>
+                </div>
+
             </div>
-            <div class="all-quizzes">
-                <!-- <div class="header">Todos os Quizzes</div> -->
-                
+
+
+            <div class="quizzes">
+                <div class="header">Todos os Quizzes</div>
+                <div class="all-quizzes">
+                </div>
             </div>
         </article>
 
@@ -72,8 +92,8 @@
         </article>
 
         <!--Layout TELA3 - Criar quizzes-->
-        <article class="your-quiz hidden">
-            <div class="your-quiz-basic-info" >
+        <article class="your-quiz">
+            <div class="your-quiz-basic-info hidden">
                 <p>Comece pelo começo</p>
                 <input type="text" id="your-quiz-tittle" placeholder="Título do seu quiz">
                 <input type="text" id="your-quiz-URL" placeholder="URL da imagem do seu quiz">
@@ -88,8 +108,7 @@
 
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./js/scriptTela1.js"></script>
     <script src="./js/scriptTela2.js"></script>
     <script src="./js/scriptTela3.js"></script>
