@@ -21,7 +21,7 @@
     <div class="container">
         <!--Layout TELA1 - Lista de quizzes-->
         
-        <article class="screen-one">
+        <article class="screen-one hidden">
 
             <div class="user-quizzes">
 
@@ -92,7 +92,9 @@
         </article>
 
         <!--Layout TELA3 - Criar quizzes-->
-        <article class="your-quiz">
+
+  
+        <article class="your-quiz hidden">
             <div class="your-quiz-basic-info hidden">
                 <p>Comece pelo começo</p>
                 <input type="text" id="your-quiz-tittle" placeholder="Título do seu quiz">
@@ -102,8 +104,19 @@
                 <button onclick="YourQuizInfo()" >Prosseguir pra criar perguntas</button>
             </div>
 
+        </article>
 
 
+        <article class="your-quiz-levels hidden">
+            <div class="your-quiz-level" >
+                <p>Agora, decida os níveis!</p>
+                <span>Nível 1</span>
+                <input type="text" id="your-quiz-level-tittle" placeholder="Título do nível">
+                <input type="text" id="your-quiz-level-percent" placeholder="% de acerto mínima">
+                <input type="text" id="your-quiz-level-URL" placeholder="URL da imagem do nível">
+                <input type="text" id="your-quiz-level-text" placeholder="Descrição do nível">
+                <button onclick="yourQuizzLevel()" >Finalizar Quizz</button>
+            </div>
         </article>
 
     </div>
