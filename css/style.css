@@ -208,3 +208,52 @@ article .quiz-body {
 .hidden {
   display: none;
 }
+.your-quiz{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.your-quiz-basic-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+}
+.your-quiz-basic-info p{
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 37px;
+  margin-bottom: 50px;
+  color: #000000;
+
+
+}
+.your-quiz-basic-info input{
+  font-size: 19px ;
+  font-weight: 400;
+  font-style: italic;
+  border: 1px solid #BABABA;
+  border-radius: 5px;
+  margin: 5px 0;
+  width: 341px ;
+  height: 46px;
+  
+
+}
+.your-quiz-basic-info button{
+  width: 323px;
+  height: 54px;
+  font-size: 18px;
+  color: #FFF5F4;
+  background-color: #ec362d;
+  border: 1px solid #ffffff;
+  border-radius: 15px;
+  margin-top:50px ;
+
+}
+.your-quiz-basic-info button:hover{
+  cursor: pointer;
+}
