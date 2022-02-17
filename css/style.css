@@ -53,6 +53,18 @@ header {
   margin-bottom: 14px;
 }
 
+.top {
+  display: flex;
+}
+
+.top img {
+  cursor: pointer;
+  margin-left: 9px;
+
+  width: 22px;
+  height: 22px;
+}
+
 .create-quizz {
   height: 181px;
   width: 80%;
@@ -71,8 +83,8 @@ header {
 h1 {
   font-size: 20px;
   color: #b9b9b9;
-  text-align: center;
   margin-bottom: 22px;
+  text-align: center;
 }
 
 .create-quizz button {
@@ -96,6 +108,20 @@ h1 {
 }
 
 .all-quizzes {
+  width: 100vw;
+  height: 100vh;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 40px;
+  cursor: pointer;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.quizzes-list {
   width: 340px;
   height: 181px;
   border-radius: 5px;
@@ -105,13 +131,6 @@ h1 {
   cursor: pointer;
 }
 
-.quizzes-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-
 .quizzes-list:hover {
   filter: brightness(0.9);
 }
@@ -120,6 +139,16 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.quizzes-list .title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 14px;
+  color: #fff;
+  font-size: 19px;
+  word-break: break-all;
 }
 
 .overlay {
@@ -205,9 +234,6 @@ article .quiz-body {
   align-items: center;
 }
 
-.hidden {
-  display: none;
-}
 .your-quiz{
   display: flex;
   flex-direction: column;
@@ -219,7 +245,6 @@ article .quiz-body {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 
 }
 .your-quiz-basic-info p{
@@ -251,8 +276,7 @@ article .quiz-body {
   background-color: #ec362d;
   border: 1px solid #ffffff;
   border-radius: 15px;
-  margin-top:50px ;
-
+  margin-top:50px;
 }
 .your-quiz-basic-info button:hover{
   cursor: pointer;
@@ -307,4 +331,7 @@ article .quiz-body {
   color: #000000;
   
 
+}
+.hidden {
+  display: none;
 }

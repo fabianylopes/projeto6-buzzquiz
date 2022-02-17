@@ -4,7 +4,7 @@ const BUZZQUIZZ_API = "https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes";
 
 function YourQuizInfo() {
     let infoTela3 = document.querySelector('.your-quiz');
-    //infoTela3.classList.remove('.hidden')
+    infoTela3.classList.remove('.hidden')
 
     let yourQuizzTittle = document.querySelector('#your-quiz-tittle').value;
  
