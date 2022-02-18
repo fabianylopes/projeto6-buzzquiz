@@ -95,17 +95,44 @@
 
   
         <article class="your-quiz hidden">
-            <div class="your-quiz-basic-info hidden">
+            <div class="your-quiz-basic-info">
                 <p>Comece pelo começo</p>
                 <input type="text" id="your-quiz-tittle" placeholder="Título do seu quiz">
                 <input type="text" id="your-quiz-URL" placeholder="URL da imagem do seu quiz">
                 <input type="text" id="your-quiz-questions" placeholder="Quantidade de pergintas do quiz">
                 <input type="text" id="your-quiz-levels" placeholder="Quantidade de níveis do quiz">
-                <button onclick="YourQuizInfo()" >Prosseguir pra criar perguntas</button>
+                <button onclick="YourQuizInfo()">Prosseguir pra criar perguntas</button>
             </div>
 
         </article>
 
+     <article class="your-quiz-question hidden">
+            <p>Crie suas perguntas</p>
+            <div class="your-quiz-question-container" >
+            <span>Pergunta 1</span>
+            <input type="text" id="your-quiz-question-tittle" placeholder="Texto da pergunta">
+            <input type="text" id="your-quiz-question-color" placeholder="Cor de fundo da pergunta">
+            <span>Resposta correta</span>
+            <input type="text" id="your-quiz-question-right" placeholder="Resposta correta">
+            <input type="text" id="your-quiz-question-text" placeholder="URL da imagem">
+            <span>Respostas incorretas</span>
+            <input type="text" id="your-quiz-question-1" placeholder="Resposta incorreta 1">
+            <input type="text" id="your-quiz-question-URL-1" placeholder="URL da imagem 1">
+            <input type="text" id="your-quiz-question-2" placeholder="Resposta incorreta 2">
+            <input type="text" id="your-quiz-question-URL-2" placeholder="URL da imagem 2">
+            <input type="text" id="your-quiz-question-3" placeholder="Resposta incorreta 3">
+            <input type="text" id="your-quiz-question-URL-3" placeholder="URL da imagem 3">
+
+        </div>    
+        <div class="your-quiz-question-container" >
+            <span>Pergunta 2<img src="Vector.png" alt=""></span> 
+        </div> 
+        <div class="your-quiz-question-container">
+            <span>Pergunta 3 <img src="Vector.png" alt=""></span> 
+        </div>
+       <button onclick="yourQuizzQuestion()">Prosseguir para criar níveis</button>
+        
+    </article>        
 
         <article class="your-quiz-levels hidden">
             <div class="your-quiz-level" >
@@ -115,9 +142,10 @@
                 <input type="text" id="your-quiz-level-percent" placeholder="% de acerto mínima">
                 <input type="text" id="your-quiz-level-URL" placeholder="URL da imagem do nível">
                 <input type="text" id="your-quiz-level-text" placeholder="Descrição do nível">
-                <button onclick="yourQuizzLevel()" >Finalizar Quizz</button>
+                <button onclick="yourQuizzLevel()">Finalizar Quizz</button>
             </div>
         </article>
+
 
     </div>
 
@@ -125,6 +153,7 @@
     <script src="./js/scriptTela3.js"></script>
     <script src="./js/scriptTela1.js"></script>
     <script src="./js/scriptTela2.js"></script>
+
 </body>
 
 </html>
