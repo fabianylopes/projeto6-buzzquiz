@@ -1,55 +1,46 @@
-const ANSWERS = ["sim", "não", "Ouvi falar, mas não tinha crtz", "Sim, mas não sei onde vai ser"];
-let answerbox = [];
+let specificQuestions = [];
+let questionIDs = [];
+let answerOptions = [];
 
 
-// function createAnswerOrder() {
-//     for (let i = 0; i < ANSWERS.length; i++){
-//         let resposta = ANSWERS[i];
-//         answerbox.push(resposta);
-//     }
-//     answerbox.sort(Math.random);
-// }
 
-function buildQuestionBox() {
-    // createAnswerOrder()
-    answerbox = ANSWERS.sort;
+function displayQuiz(){
+    let questionIDs = objectIDquiz.questions;
+    console.log(questionIDs);
 
+   
     const question = document.querySelector(".quiz-open");
-    question.innerHTML = "";
+    question.innerHTML =
+     `<div class="quiz-header" style="background:linear-gradient(0deg, rgba(0, 0, 0, 0.57), rgba(0, 0, 0, 0.57)), url(${objectIDquiz.image});">
+            <h1>${objectIDquiz.title}</h1>
+        </div>`
 
-       question.innerHTMl = `
-       <div class="quiz-header">
-       <p>Título do quiz</p>
-   </div>
-   <div class="quiz-body">
-                <div class="quiz-questionbox">
-                    <div class="quiz-questiontext">
-                        <p>Alguém sabia que ia ter copa do mundo esse ano?</p>
-                    </div>
-                    <div class="quiz-answeroptions">
-                        <div class="column1-answers">
-                            <div class="answer-option">
-                                <img class="answer-img" src="https://rollingstone.uol.com.br/media/_versions/bob-esponja-lgbtq-reprod_widelg.jpg" alt="figura para resposta" />
-                                <span>${ANSWERS.sort[i]}</span>
-                            </div>
-                            <div class="answer-option">
-                                <img class="answer-img" src="https://rollingstone.uol.com.br/media/_versions/bob-esponja-lgbtq-reprod_widelg.jpg" alt="figura para resposta" />
-                                <span>${answerbox[i]}</span>
-                            </div>
-                        </div>
-                        <div class="column2-answers">
-                            <div class="answer-option">
-                                <img class="answer-img" src="https://rollingstone.uol.com.br/media/_versions/bob-esponja-lgbtq-reprod_widelg.jpg" alt="figura para resposta" />
-                                <span>${answerbox[i]}</span>
-                            </div>
-                            <div class="answer-option">
-                                <img class="answer-img" src="https://rollingstone.uol.com.br/media/_versions/bob-esponja-lgbtq-reprod_widelg.jpg" alt="figura para resposta" />
-                                <span>${answerbox[i]}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>`;
+    for (let i = 0; i < questionIDs.length; i++) {
+        question.innerHTML += `
+        <div class="quiz-body"> 
+            <div class="quiz-questionbox">
+                <div class="quiz-questiontext" style="background-color:${questionIDs[i].color};">
+                    <p>${questionIDs[i].title}</p>
+                </div>`
+
+        answerOptions =  questionIDs[i].answers;
+        sortAnswers()
+    
+        for(let j=0; j < questionIDs[i].answers.length; j++){
+        const postAnswers = document.querySelector(".quiz-open");
+        postAnswers.innerHTML += `
+                  <div class="answer-option">
+                        <img class="answer-img"
+                            src="${questionIDs[i].answers[j].image}"
+                            alt="figura para resposta" />
+                        <span>${questionIDs[i].answers[j].text}</span>
+                </div>`
+            } 
+        }
 }
 
-buildQuestionBox()
+function sortAnswers() {
+    answerOptions.sort( function () {
+        return 0.5 - Math.random();
+    });
+}
