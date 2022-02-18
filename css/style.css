@@ -194,9 +194,10 @@ article .quiz-body {
   background: #FFFFFF;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
   padding: 2%;
+  margin: 42px;
 }
 
-.quiz-questionbox .quiz-questiontext {
+.quiz-questiontext {
   width: 688px;
   height: 138px;
   font-weight: 700;
@@ -208,18 +209,19 @@ article .quiz-body {
   justify-content: center;
 }
 
-.quiz-questionbox .quiz-answeroptions {
+.quiz-answeroptions {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.quiz-open .quiz-questionbox .answer-img {
+.answer-img {
   width: 330px;
   height: 175px;
 }
 
 .quiz-open .quiz-questionbox .answer-option {
   margin-top: 20px;
+  margin-right: 25px;
 }
 
 .answer-option span {
