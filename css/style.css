@@ -228,10 +228,21 @@ article .quiz-body {
   margin-top: 8px;
   font-weight: 700;
   font-size: 20px;
-  color: #000000;
 
   display: flex;
   align-items: center;
+}
+
+.wrongColor {
+  color: #FF4B4B;
+}
+
+.rightColor {
+  color:#009C22;
+}
+
+.opacity {
+  opacity: 0.3;
 }
 
 .your-quiz{
