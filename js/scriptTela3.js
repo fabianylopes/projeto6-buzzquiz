@@ -2,58 +2,68 @@ const BUZZQUIZZ_API = "https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes";
 
 
 let objectYourQuiz = {};
-function createQuizz(){
+
+
 // informações básicas do quiz
 let yourQuizzTittle;
-let yourQuizzURL 
+let yourQuizzURL
 let yourQuizzQuestions
 let yourQuizzLevels
 
-function removeHidden(screen){
+function removeHidden(screen) {
     screen.classList.remove('hidden');
 }
-function addHidden(screen){
+function addHidden(screen) {
     screen.classList.add('hidden');
+}
+
+function Scroll() {
+    const button = document.querySelector("button");
+    button.scrollIntoView();
 }
 
 let Tela3_fase1 = document.querySelector('.your-quiz');
 removeHidden(Tela3_fase1);
 
+
+
 function YourQuizInfo() {
-     yourQuizzTittle = document.querySelector('#your-quiz-tittle').value;
-     yourQuizzURL = document.querySelector('#your-quiz-URL').value;
-     yourQuizzQuestions = document.querySelector('#your-quiz-questions').value;
-     yourQuizzLevels = document.querySelector('#your-quiz-levels').value;
-    
-    
+    yourQuizzTittle = document.querySelector('#your-quiz-tittle').value;
+    yourQuizzURL = document.querySelector('#your-quiz-URL').value;
+    yourQuizzQuestions = document.querySelector('#your-quiz-questions').value;
+    yourQuizzLevels = document.querySelector('#your-quiz-levels').value;
+
+
     objectYourQuiz = {
         title: yourQuizzTittle,
         image: yourQuizzURL,
 
     }
-   // console.log(objectYourQuiz);
+    // console.log(objectYourQuiz);
 
+    Scroll();
 
     if (yourQuizzTittle.length < 20 || yourQuizzTittle.length > 65) {
         alert("o título do seu quiz deve ter entre 20 e 65 carateres!!");
         document.querySelector("#your-quiz-tittle").value = ""
-     return 
-    }
-    if (Number(yourQuizzQuestions) < 3) {
-        alert("você deve inserir no mínimo 3 perguntas!!");
-        document.querySelector("#your-quiz-questions").value = ""
-     return 
-    }
-    if (Number(yourQuizzLevels) < 2) {
-        alert("o quiz deve ter no mínimo 2 levels!!");
-        document.querySelector("#your-quiz-levels").value = ""
-       return
+        return
     }
     if (yourQuizzURL.includes('http') === false) {
         alert("a imagem deve ter um formato URL!!");
         document.querySelector("#your-quiz-URL").value = ""
-       return
+        return
     }
+    if (Number(yourQuizzQuestions) < 3) {
+        alert("você deve inserir no mínimo 3 perguntas!!");
+        document.querySelector("#your-quiz-questions").value = ""
+        return
+    }
+    if (Number(yourQuizzLevels) < 2) {
+        alert("o quiz deve ter no mínimo 2 levels!!");
+        document.querySelector("#your-quiz-levels").value = ""
+        return
+    }
+
 
     addHidden(Tela3_fase1)
     removeHidden(Tela3_fase2)
@@ -65,7 +75,7 @@ function YourQuizInfo() {
     //  })
     // promise.catch(quizError);  //função que só mostra o erro no console
 
-  // yourQuizzQuestion();
+    // yourQuizzQuestion();
 }
 
 // informações sobre as perguntas do quiz
@@ -74,23 +84,23 @@ let Tela3_fase2 = document.querySelector(".your-quiz-question");
 
 let yourQuizzQuestionTittle
 let yourQuizzQuestionColor
-let yourQuizzQuestionRigth 
+let yourQuizzQuestionRigth
 let yourQuizzQuestionURL
-let yourQuizzQuestionWrong1 
+let yourQuizzQuestionWrong1
 let yourQuizzQuestionWrong1URL
-let yourQuizzQuestionWrong2 
+let yourQuizzQuestionWrong2
 let yourQuizzQuestionWrong2URL
-let yourQuizzQuestionWrong3 
-let yourQuizzQuestionWrong3URL 
+let yourQuizzQuestionWrong3
+let yourQuizzQuestionWrong3URL
 
 
 
-function yourQuizzQuestion(){
+function yourQuizzQuestion() {
     addHidden(Tela3_fase1);
     removeHidden(Tela3_fase2);
-    
-    yourQuizzQuestionTittle= document.querySelector('#your-quiz-question-tittle').value;
-    yourQuizzQuestionColor = document.querySelector('#your-quiz-question-color').value; 
+
+    yourQuizzQuestionTittle = document.querySelector('#your-quiz-question-tittle').value;
+    yourQuizzQuestionColor = document.querySelector('#your-quiz-question-color').value;
     yourQuizzQuestionRigth = document.querySelector('#your-quiz-question-right').value;
     yourQuizzQuestionURL = document.querySelector('#your-quiz-question-text').value;
     yourQuizzQuestionWrong1 = document.querySelector('#your-quiz-question-1').value;
@@ -98,8 +108,8 @@ function yourQuizzQuestion(){
     yourQuizzQuestionWrong2 = document.querySelector('#your-quiz-question-2').value;
     yourQuizzQuestionWrong2URL = document.querySelector('#your-quiz-question-URL-2').value;
     yourQuizzQuestionWrong3 = document.querySelector('#your-quiz-question-3').value;
-    yourQuizzQuestionWrong3URL = document.querySelector('#your-quiz-question-URL-3').value; 
-    
+    yourQuizzQuestionWrong3URL = document.querySelector('#your-quiz-question-URL-3').value;
+
     objectYourQuiz = {
         questions: [
             {
@@ -152,26 +162,27 @@ function yourQuizzQuestion(){
             }
         ],
 
-    
-    }
-    
 
-    if (yourQuizzQuestionTittle.length < 20 ) {
+    }
+
+
+    if (yourQuizzQuestionTittle.length < 20) {
         alert("o título do seu quiz deve ter entre 20 e 65 carateres!!");
         document.querySelector("#your-quiz-tittle").value = ""
         return
     }
-    if ((yourQuizzQuestionColor.includes('#') === true) && (yourQuizzQuestionColor.length == 7))  {
-        alert("você deve inserir no mínimo 3 perguntas!!");
+    if ((yourQuizzQuestionColor.includes('#') === false) || (yourQuizzQuestionColor.length == !7)) {
+        alert("informe uma cor válida!!");
         document.querySelector("#your-quiz-questions").value = ""
         return
     }
+
     if (Number(yourQuizzLevels) < 2) {
         alert("o quiz deve ter no mínimo 2 levels!!");
         document.querySelector("#your-quiz-levels").value = ""
         return
     }
-    if ( (yourQuizzQuestionURL.includes('http') === false) && (yourQuizzQuestionWrong1URL.includes('http') === false) ){
+    if ((yourQuizzQuestionURL.includes('http') === false) && (yourQuizzQuestionWrong1URL.includes('http') === false)) {
         alert("a imagem deve ter um formato URL!!");
         document.querySelector("#your-quiz-URL").value = ""
         return
@@ -180,13 +191,14 @@ function yourQuizzQuestion(){
 
     //const promise = axios.post(BUZZQUIZZ_API, objectYourQuiz)
 
- //   promise.then(function(resposta){
-   // console.log(resposta.data);
-  //  console.log("seguindo em frente nas questions");
-   //  })
-  //  promise.catch(quizError); 
-   
-   // yourQuizzLevel();
+    //   promise.then(function(resposta){
+    // console.log(resposta.data);
+    //  console.log("seguindo em frente nas questions");
+    //  })
+    //  promise.catch(quizError); 
+    scroll()
+
+    yourQuizzLevel();
 
 }
 
@@ -197,15 +209,15 @@ function yourQuizzQuestion(){
 let Tela3_fase3 = document.querySelector('.your-quiz-levels');
 
 function yourQuizzLevel() {
-    
+
     addHidden(Tela3_fase2);
     removeHidden(Tela3_fase3)
-    
+
 
     let yourQuizzLevelTittle = document.querySelector('#your-quiz-level-tittle').value;
-    
+
     let yourQuizzLevelPercent = document.querySelector('#your-quiz-level-percent').value;
-   
+
     let yourQuizzLevelURL = document.querySelector('#your-quiz-level-URL').value;
 
     let yourQuizzLevelText = document.querySelector('#your-quiz-level-text').value;
@@ -225,43 +237,45 @@ function yourQuizzLevel() {
                 minValue: 50
             }
         ]
-             
+
 
     }
 
     console.log(objectYourQuiz)
-    
-    if (yourQuizzLevelTittle.length < 10) {
-      alert("o título do nível do seu quiz deve ter no mínimo 10 caracteres!!");
-      document.querySelector("#your-quiz-level-tittle").value = ""
-      return
 
-   }
-     if (Number(yourQuizzLevelPercent) < 3) {
-       alert("você deve inserir no mínimo 3 perguntas!!");
-       document.querySelector("#your-quiz-level-percent").value = ""
-       return
+    if (yourQuizzLevelTittle.length < 10) {
+        alert("o título do nível do seu quiz deve ter no mínimo 10 caracteres!!");
+        document.querySelector("#your-quiz-level-tittle").value = ""
+        return
+
+    }
+    if (Number(yourQuizzLevelPercent) < 3) {
+        alert("você deve inserir no mínimo 3 perguntas!!");
+        document.querySelector("#your-quiz-level-percent").value = ""
+        return
     }
 
- if (yourQuizzLevelURL.includes('http') === false) {
+    if (yourQuizzLevelURL.includes('http') === false) {
         alert("a imagem deve ter um formato URL!!");
         document.querySelector("#your-quiz-level-URL").value = ""
         return
     }
 
-    if  (yourQuizzLevelText.length < 30) {
+    if (yourQuizzLevelText.length < 30) {
         alert("a descrição do quiz deve ter no mínimo 30 caracteres!!");
         document.querySelector("#your-quiz-level-text").value = ""
         return
     }
-   /*  const promise = axios.post(BUZZQUIZZ_API, objectYourQuiz)
+    /*  const promise = axios.post(BUZZQUIZZ_API, objectYourQuiz)
+ 
+     promise.then(function(resposta){
+     console.log(resposta.data);
+     console.log("#vaidarcerto");
+     })
+     promise.catch(quizError);
+     */
 
-    promise.then(function(resposta){
-    console.log(resposta.data);
-    console.log("#vaidarcerto");
-    })
-    promise.catch(quizError);
-    */
+
 
 }
 
@@ -271,4 +285,30 @@ function quizError(error) {
     console.log("deu chabu")
 
 }
+
+function questions() {
+    let icon = document.getElementById("question-icon");
+    addHidden(icon);
+    addHidden(icon);
+
+    const input = document.querySelector(".input")
+
+    removeHidden(input)
+
+    const Questions = document.querySelector(".your-quiz-question-container")
+    Questions.innerHTML = `
+    <div class="input hidden"> 
+            <input type="text" id="your-quiz-question-tittle" placeholder="Texto da pergunta">
+            <input type="text" id="your-quiz-question-color" placeholder="Cor de fundo da pergunta">
+        <span>Resposta correta</span>
+            <input type="text" id="your-quiz-question-right" placeholder="Resposta correta">
+            <input type="text" id="your-quiz-question-text" placeholder="URL da imagem">
+        <span>Respostas incorretas</span>
+            <input type="text" id="your-quiz-question-1" placeholder="Resposta incorreta 1">
+            <input type="text" id="your-quiz-question-URL-1" placeholder="URL da imagem 1">
+            <input type="text" id="your-quiz-question-2" placeholder="Resposta incorreta 2">
+            <input type="text" id="your-quiz-question-URL-2" placeholder="URL da imagem 2">
+            <input type="text" id="your-quiz-question-3" placeholder="Resposta incorreta 3">
+            <input type="text" id="your-quiz-question-URL-3" placeholder="URL da imagem 3">
+    `
 }

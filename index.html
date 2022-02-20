@@ -108,7 +108,7 @@
 
      <article class="your-quiz-question hidden">
             <p>Crie suas perguntas</p>
-            <div class="your-quiz-question-container" >
+        <div class="your-quiz-question-container" >
             <span>Pergunta 1</span>
             <input type="text" id="your-quiz-question-tittle" placeholder="Texto da pergunta">
             <input type="text" id="your-quiz-question-color" placeholder="Cor de fundo da pergunta">
@@ -125,10 +125,37 @@
 
         </div>    
         <div class="your-quiz-question-container" >
-            <span>Pergunta 2<img src="Vector.png" alt=""></span> 
+            <span>Pergunta 2<img onclick="questions()" src="Vector.png" id="question-icon" alt=""></span>
+            <div class="input hidden"> 
+            <input type="text" id="your-quiz-question-tittle" placeholder="Texto da pergunta">
+            <input type="text" id="your-quiz-question-color" placeholder="Cor de fundo da pergunta">
+        <span>Resposta correta</span>
+            <input type="text" id="your-quiz-question-right" placeholder="Resposta correta">
+            <input type="text" id="your-quiz-question-text" placeholder="URL da imagem">
+        <span>Respostas incorretas</span>
+            <input type="text" id="your-quiz-question-1" placeholder="Resposta incorreta 1">
+            <input type="text" id="your-quiz-question-URL-1" placeholder="URL da imagem 1">
+            <input type="text" id="your-quiz-question-2" placeholder="Resposta incorreta 2">
+            <input type="text" id="your-quiz-question-URL-2" placeholder="URL da imagem 2">
+            <input type="text" id="your-quiz-question-3" placeholder="Resposta incorreta 3">
+            <input type="text" id="your-quiz-question-URL-3" placeholder="URL da imagem 3"> 
         </div> 
+    </div>
         <div class="your-quiz-question-container">
-            <span>Pergunta 3 <img src="Vector.png" alt=""></span> 
+            <span>Pergunta 3 <img onclick="questions()" src="Vector.png" id="question-icon" alt=""></span> 
+            <div class="input hidden"> 
+                <input type="text" id="your-quiz-question-tittle" placeholder="Texto da pergunta">
+                <input type="text" id="your-quiz-question-color" placeholder="Cor de fundo da pergunta">
+            <span>Resposta correta</span>
+                <input type="text" id="your-quiz-question-right" placeholder="Resposta correta">
+                <input type="text" id="your-quiz-question-text" placeholder="URL da imagem">
+            <span>Respostas incorretas</span>
+                <input type="text" id="your-quiz-question-1" placeholder="Resposta incorreta 1">
+                <input type="text" id="your-quiz-question-URL-1" placeholder="URL da imagem 1">
+                <input type="text" id="your-quiz-question-2" placeholder="Resposta incorreta 2">
+                <input type="text" id="your-quiz-question-URL-2" placeholder="URL da imagem 2">
+                <input type="text" id="your-quiz-question-3" placeholder="Resposta incorreta 3">
+                <input type="text" id="your-quiz-question-URL-3" placeholder="URL da imagem 3"> 
         </div>
        <button onclick="yourQuizzQuestion()">Prosseguir para criar níveis</button>
         
