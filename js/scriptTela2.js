@@ -13,7 +13,7 @@ function displayQuiz() {
         let answersHTML = "";
         answers.forEach(answer => {
             answersHTML += `
-          <div class="answer-option" id="${answers.indexOf(answer)}" data-boolean="${answer.isCorrectAnswer}" onclick="verifyAnswer(this)">
+          <div class="answer-option" data-boolean="${answer.isCorrectAnswer}" onclick="verifyAnswer(this)">
             <img class="answer-img"
                 src="${answer.image}"
                 alt="figura para resposta" />
@@ -23,7 +23,7 @@ function displayQuiz() {
         })
 
         let quizzHTML = `
-        <div class="quiz-questionbox">
+        <div class="quiz-questionbox" id="${questionIDs.indexOf(questionId)}">
             <div class="quiz-questiontext" style="background-color:${questionId.color};">
                 <p>${questionId.title}</p>
             </div>
@@ -50,27 +50,37 @@ function comparador() {
 }
 
 function verifyAnswer(div) {
-    let righText = div.getAttribute("data-boolean");
-    let id = div.getAttribute("id");
+    divParent = div.parentElement;
+ 
+    const selectAllOptions = divParent.querySelectorAll(".answer-option");
+    for (i = 0; i < selectAllOptions.length; i++) {
+        const righText = selectAllOptions[i].getAttribute("data-boolean");
+        selectAllOptions[i].removeAttribute("onclick");
 
-    console.log(id);
-
-    for (let i = 0; i < answers.length; i++) {
-        const object = document.getElementByID(i);
-        if (i != id) {
-            object.classList.add("opacidade");
-            if (righText === "false") {
-                div.querySelector("span").classList.add("wrongColor");
+        if (selectAllOptions[i] != div) {
+            selectAllOptions[i].classList.add('opacity');
+            if (righText === "true") {
+                selectAllOptions[i].querySelector("span").classList.add("rightColor");
             } else {
-                div.querySelector("span").classList.add("rightColor");
+                selectAllOptions[i].querySelector("span").classList.add("wrongColor");
             }
         }
-        if (i == id) {
+
+        if (selectAllOptions[i] == div) {
             if (righText === "false") {
-                div.querySelector("span").classList.add("wrongColor");
+                selectAllOptions[i].querySelector("span").classList.add("wrongColor");
             } else {
-                div.querySelector("span").classList.add("rightColor");
+                selectAllOptions[i].querySelector("span").classList.add("rightColor");
             }
         }
     }
+
+    divQuestion = divParent.parentElement;
+    console.log(divQuestion);
+    let questId = divQuestion.getAttribute("id");
+    let next = parseInt(questId) + 1;
+    
+    setTimeout(() => {
+        document.getElementById(`${next}`).scrollIntoView({block: "center", behavior: "smooth"});
+    }, 2000)
 }
