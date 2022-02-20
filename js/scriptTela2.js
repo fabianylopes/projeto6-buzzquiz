@@ -1,5 +1,6 @@
 let questionIDs = [];
 let answers = [];
+let questionsQnt = 0;
 let acertos = 0;
 let feito = 0;
 
@@ -50,9 +51,16 @@ function comparador() {
 }
 
 function verifyAnswer(div) {
+    feito++;
+    questionsQnt = questionIDs.length;
+
     divParent = div.parentElement;
- 
+    divQuestion = divParent.parentElement;
+    let questId = divQuestion.getAttribute("id");
+    let next = parseInt(questId) + 1;
+
     const selectAllOptions = divParent.querySelectorAll(".answer-option");
+
     for (i = 0; i < selectAllOptions.length; i++) {
         const righText = selectAllOptions[i].getAttribute("data-boolean");
         selectAllOptions[i].removeAttribute("onclick");
@@ -67,20 +75,59 @@ function verifyAnswer(div) {
         }
 
         if (selectAllOptions[i] == div) {
-            if (righText === "false") {
-                selectAllOptions[i].querySelector("span").classList.add("wrongColor");
-            } else {
+            if (righText === "true") {
                 selectAllOptions[i].querySelector("span").classList.add("rightColor");
+                acertos++;
+            } else {
+                selectAllOptions[i].querySelector("span").classList.add("wrongColor");
+            }
+        }
+
+        if (feito === questionsQnt) {
+            getResult();
+        } else {
+            setTimeout(() => {
+                document.getElementById(`${next}`).scrollIntoView({ block: "center", behavior: "smooth" });
+            }, 2000)
+        }
+    }
+}
+
+function getResult() {
+    document.querySelector(".end-quiz").classList.remove("hidden");
+    // scrollIntoView(resultBox);
+    const result = Math.floor(acertos / questionsQnt * 100);
+    console.log(result);
+
+    let level = null;
+    allLevels = objectIDquiz.levels;
+    console.log(allLevels);
+    for (let i = 0; i < allLevels.length; i++) {
+        if (allLevels[i].minValue <= result) {
+            if (level == null) {
+                level = i;
+            }
+            if (allLevels[i].minValue > allLevels[level].minValue) {
+                level = i;
             }
         }
     }
+    console.log(level);
+    showResult(level, result);
+}
 
-    divQuestion = divParent.parentElement;
-    console.log(divQuestion);
-    let questId = divQuestion.getAttribute("id");
-    let next = parseInt(questId) + 1;
-    
+function showResult(i, pontuacao) {
+    let showResult = document.querySelector(".result-box");
+    showResult.innerHTML = `
+        <div class="points-result">
+            <h1>${pontuacao}% de acerto: ${allLevels[i].title}</h1>
+        </div>
+        <div class="more-info">
+            <img src="${allLevels[i].image}" alt="Figura - Resultado do Quiz" />
+            <span class="message">${allLevels[i].text}</span>
+        </div>
+    `
     setTimeout(() => {
-        document.getElementById(`${next}`).scrollIntoView({block: "center", behavior: "smooth"});
-    }, 2000)
+        showResult.scrollIntoView();
+    }, 2000);
 }
