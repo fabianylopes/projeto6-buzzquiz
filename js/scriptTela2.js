@@ -4,6 +4,7 @@ let questionsQnt = 0;
 let acertos = 0;
 let feito = 0;
 
+
 function displayQuiz() {
     questionIDs = objectIDquiz.questions;
     let questionBodyHTML = "";
@@ -43,7 +44,13 @@ function displayQuiz() {
         <div class="quiz-body">
           ${questionBodyHTML}
         </div>
-        `
+      `
+    autoScroll()
+}
+
+function autoScroll() {
+    const startQuiz = document.querySelector("body");
+    startQuiz.scrollIntoView();
 }
 
 function comparador() {
@@ -94,8 +101,6 @@ function verifyAnswer(div) {
 }
 
 function getResult() {
-    document.querySelector(".end-quiz").classList.remove("hidden");
-    // scrollIntoView(resultBox);
     const result = Math.floor(acertos / questionsQnt * 100);
     console.log(result);
 
@@ -113,10 +118,13 @@ function getResult() {
         }
     }
     console.log(level);
-    showResult(level, result);
+
+    setTimeout(showResult, 2000, level, result);
 }
 
 function showResult(i, pontuacao) {
+    let lastPart = document.querySelector(".end-quiz");
+    lastPart.classList.remove("hidden");
     let showResult = document.querySelector(".result-box");
     showResult.innerHTML = `
         <div class="points-result">
@@ -127,7 +135,27 @@ function showResult(i, pontuacao) {
             <span class="message">${allLevels[i].text}</span>
         </div>
     `
-    setTimeout(() => {
-        showResult.scrollIntoView();
-    }, 2000);
+    lastPart.scrollIntoView({ block: "center", behavior: "smooth" });
+}
+
+function reloadQuiz() {
+    let lastPart = document.querySelector(".end-quiz");
+    lastPart.classList.add("hidden");
+    acertos = 0;
+    feito = 0;
+    questionsQnt = 0;
+    displayQuiz(quiz);
+}
+
+function goHome() {
+    const screenTwo = document.querySelector('.quiz-open');
+    screenTwo.classList.add('hidden');
+
+    let lastPart = document.querySelector(".end-quiz");
+    lastPart.classList.add("hidden");
+
+    const screenOne = document.querySelector('.screen-one');
+    screenOne.classList.remove('hidden');
+
+    autoScroll()
 }

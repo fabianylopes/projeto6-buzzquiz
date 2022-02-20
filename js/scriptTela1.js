@@ -1,4 +1,5 @@
 let objectIDquiz = [];
+let quiz; //para uso em reload no scriptTela2
 
 console.log(objectYourQuiz);
 
@@ -58,19 +59,19 @@ function quizzesList(response){
 }
 
 function showQuizz(id){
+    quiz = id; //para tela2
     const promise = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${id}`);
     promise.then(success);
 }
 
 function choseQuizz(){   
-    displayQuiz();  //função em scriptTela2
-
     const screenTwo = document.querySelector('.quiz-open');
     screenTwo.classList.remove('hidden');
 
     const screenOne = document.querySelector('.screen-one');
     screenOne.classList.add('hidden');
 
+    displayQuiz();  //função em scriptTela2
 }
 
 function success(response){

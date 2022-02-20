@@ -163,12 +163,17 @@ h1 {
       #000000 100%);
 }
 
-.quiz-open .quiz-header {
-  width: 100%;
-  height: 227px;
-
-  position: fixed;
+.quiz-selected {
   top: 69px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz-open .quiz-header {
+  width: 100%; /*SE EU COLOCAR 100VW, O HEADER FICA CORRETO, MAS AS PERGUNTAS SOMEM */
+  height: 227px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -181,12 +186,6 @@ h1 {
   color: #FFFFFF;
 }
 
-.quiz-selected {
-  margin-top: 342px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 .quiz-questionbox {
   width: 759px;
@@ -289,7 +288,7 @@ h1 {
 
 button .reload-quiz {
   width:260px;
-  height:52px;
+  height: 52px;
   border-radius: 15px;
   background-color: #ec362d;
   color:#FFFFFF;
