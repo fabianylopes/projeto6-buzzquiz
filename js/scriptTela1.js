@@ -1,3 +1,4 @@
+let objectIDquiz = [];
 
 console.log(objectYourQuiz);
 
@@ -57,15 +58,13 @@ function quizzesList(response){
 }
 
 function showQuizz(id){
-
     const promise = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${id}`);
     promise.then(success);
-
-    choseQuizz();
-
 }
 
 function choseQuizz(){   
+    displayQuiz();  //função em scriptTela2
+
     const screenTwo = document.querySelector('.quiz-open');
     screenTwo.classList.remove('hidden');
 
@@ -75,7 +74,9 @@ function choseQuizz(){
 }
 
 function success(response){
-    console.log(response)
+    objectIDquiz = response.data;
+    console.log(objectIDquiz);
+    choseQuizz();
 }
 
 function createQuizz(){
