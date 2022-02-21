@@ -37,19 +37,19 @@ header {
 .screen-one {
   padding: 31px 20px;
   width: 100%;
-  /* max-width: 1140px; */
-  /* margin: 0 auto; */
+  max-width: 1140px; 
+  margin: 0 auto;
   
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
 }
 
 .user-quizzes {
   width: 100%;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
 }
 
 .header {
@@ -115,8 +115,8 @@ h1 {
 }
 
 .all-quizzes {
-  width: 80vw; /*antes era 100vw*/
-  height: 60vh; /*antes era 100vw*/
+  width: 100vw; 
+  height: 100vh; 
   border-radius: 5px;
   overflow: hidden;
   position: relative;
