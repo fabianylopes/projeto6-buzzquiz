@@ -57,9 +57,26 @@
 
 
         <!--Layout TELA2- Depois de abrir o quiz-->
-        <article class="quiz-open hidden">
-            <div class="quiz-header">
-                <p></p>
+        <article class="quiz-selected">
+            <div class="quiz-open hidden">
+                <div class="quiz-header">
+                    <p></p>
+                </div>
+                <div class="quiz-body">
+                    <div class="quiz-questionbox">
+                        <div class="quiz-questiontext" data-identifier="question">
+                            <p></p>
+                        </div>
+                        <div class="quiz-answeroptions">
+
+                            <div class="answer-option" data-identifier="answer">
+                                <img class="answer-img" src="" alt="figura para resposta" />
+                                <span></span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="quiz-body">
                 <div class="quiz-questionbox">
@@ -73,10 +90,22 @@
                             <span></span>
                         </div>
 
+
+            <div class="end-quiz hidden">
+                <div class="result-box" data-identifier="quizz-result">
+                    <div class="points-result">
+                        <h1></h1>
+                    </div>
+                    <div class="more-info">
+                        <img src="" alt="Figura - Resultado do Quiz" />
+                        <div class="message"></div>
                     </div>
                 </div>
+                <button class="reload-quiz" onclick="reloadQuiz()">Reiniciar Quiz</button>
+                <button class="go-home" onclick="goHome()">Voltar pra Home</button>
             </div>
         </article>
+
 
         <!--Layout TELA3 - Criar quizzes-->
 
