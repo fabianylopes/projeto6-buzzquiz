@@ -17,7 +17,7 @@ function usersQuizzes(){
 
         for(let i = 0; i < objectYourQuiz.length; i++){
             quizzes.innerHTML += `
-            <div class="quizzes-list">
+            <div data-identifier="user-quizzes" class="quizzes-list">
                 <img src="${objectYourQuiz[i].image}">
                 <div class="overlay"></div>
                 <div class="title">${objectYourQuiz[i].title}</div>
@@ -47,7 +47,7 @@ function quizzesList(response){
 
     for(let i = 0; i < info.length; i++){
         quizzes.innerHTML += `
-        <div class="quizzes-list" onclick="showQuizz(${info[i].id})">
+        <div data-identifier="general-quizzes" class="quizzes-list" onclick="showQuizz(${info[i].id})">
             <img src="${info[i].image}">
             <div class="overlay"></div>
             <div class="title">${info[i].title}</div>
