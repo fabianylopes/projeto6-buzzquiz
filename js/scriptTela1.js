@@ -1,9 +1,7 @@
 let objectIDquiz = [];
 let quiz; //para uso em reload no scriptTela2
 
-console.log(objectYourQuiz);
 
-//const quizzUsersKey = "quizzes";
 
 function usersQuizzes(){
 
@@ -29,7 +27,7 @@ function usersQuizzes(){
     }
 }
 
-//usersQuizzes();
+usersQuizzes();
 getQuizzes();
 
 // localStorage.setItem("nome", "João");

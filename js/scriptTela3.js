@@ -400,3 +400,25 @@ function Level(){
 tela3_levels.innerHTML+= `<button onclick="yourQuizzLevel()">Finalizar Quizz</button>
 `
 }
+
+
+function successPage() {
+    const success = document.querySelector('.container');
+
+    success.innerHTML = `
+    <div class="success-page">
+        <div class="header">Seu quizz está pronto!</div>
+
+        <div class="quizz">
+            <img src="">
+            <div class="overlay"></div>
+            <div class="title"></div>
+        </div>
+
+        <button class="enter-quizz-button" onclick="showQuizz(${id})">Acessar Quizz</button>
+        <button class="back-button" onclick="goHome()">Voltar pra home</button>
+    </div>
+    `;
+  }
+
+
