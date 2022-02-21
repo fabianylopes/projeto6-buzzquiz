@@ -15,7 +15,7 @@ function displayQuiz() {
         let answersHTML = "";
         answers.forEach(answer => {
             answersHTML += `
-          <div class="answer-option" data-boolean="${answer.isCorrectAnswer}" onclick="verifyAnswer(this)">
+          <div class="answer-option" data-identifier="answer" data-boolean="${answer.isCorrectAnswer}" onclick="verifyAnswer(this)">
             <img class="answer-img"
                 src="${answer.image}"
                 alt="figura para resposta" />
@@ -26,7 +26,7 @@ function displayQuiz() {
 
         let quizzHTML = `
         <div class="quiz-questionbox" id="${questionIDs.indexOf(questionId)}">
-            <div class="quiz-questiontext" style="background-color:${questionId.color};">
+            <div class="quiz-questiontext" data-identifier="question" style="background-color:${questionId.color};">
                 <p>${questionId.title}</p>
             </div>
             <div class="quiz-answeroptions">
@@ -124,7 +124,7 @@ function showResult(i, pontuacao) {
     lastPart.classList.remove("hidden");
     let showResult = document.querySelector(".result-box");
     showResult.innerHTML = `
-    <div class="result-box">
+    <div class="result-box" data-identifier="quizz-result">
         <div class="points-result">
             <h1>${pontuacao}% de acerto: ${allLevels[i].title}</h1>
         </div>
