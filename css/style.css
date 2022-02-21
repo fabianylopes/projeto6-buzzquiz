@@ -163,13 +163,16 @@ h1 {
       #000000 100%);
 }
 
+.quiz-open {
+  width: 100vw;
+}
+
 .quiz-open .quiz-header {
   width: 100%;
   height: 227px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.57), rgba(0, 0, 0, 0.57)), url(https://static.mundoeducacao.uol.com.br/mundoeducacao/2021/07/pes-com-chuteiras-disputando-por-bola-em-campo-de-futebol.jpg);
 
-  position: fixed;
-  top: 69px;
+  padding-top: 69px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -183,7 +186,7 @@ h1 {
 }
 
 article .quiz-body {
-  margin-top: 342px;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -286,9 +289,12 @@ article .quiz-body {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-
 }
+
+.your-quiz-levels {
+  display: none;
+}
+
 .your-quiz-level p{
   font-weight: 700;
   font-size: 20px;
@@ -329,9 +335,8 @@ article .quiz-body {
   font-weight: 500;
   font-size: 20px;
   color: #000000;
-  
-
 }
+
 .hidden {
   display: none;
 }

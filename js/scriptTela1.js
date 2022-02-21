@@ -47,7 +47,7 @@ function quizzesList(response){
 
     for(let i = 0; i < info.length; i++){
         quizzes.innerHTML += `
-        <div class="quizzes-list" onclick="showQuizz(${info[i].id})">
+        <div class="quizzes-list" onclick="getSpecificQuizz(${info[i].id})">
             <img src="${info[i].image}">
             <div class="overlay"></div>
             <div class="title">${info[i].title}</div>
@@ -56,26 +56,75 @@ function quizzesList(response){
     }
 }
 
-function showQuizz(id){
-
+function getSpecificQuizz(id){
     const promise = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${id}`);
-    promise.then(success);
+    promise.then(showQuizz);
+}
 
-    choseQuizz();
+
+
+function showQuizz(response){   
+    changeSreens();
+    
+    let info = response.data;
+    
+    const header = document.querySelector('.quiz-open');
+    header.innerHTML = `
+    
+
+    <div class="quiz-header">
+        <p>${info.title}</p>
+    </div>
+    <div class="quiz-body">
+        <div class="quiz-questionbox">
+
+            for
+            <div class="quiz-questiontext">
+                <p>${info.questions.title}</p>
+            </div>
+            <div class="quiz-answeroptions">
+                <div class="column1-answers">
+                    <div class="answer-option">
+                        <img class="answer-img" src="https://http.cat/411.jpg" alt="figura para resposta" />
+                        <span>Sim</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    `
+
+            
+
+
+
+    let question = info.questions;
+
+    // const questionTitle = document.querySelector('.quiz-questionbox');
+    // questionTitle.innerHTML = '';
+    
+    // for(let i = 0; i < question.length; i++){
+    //     questionTitle.innerHTML += `
+    //     <div class="quiz-questiontext">
+    //         <p>${question[i].title}</p>
+    //     </div>
+    //     `
+    // }
+
+
+
+    console.log(info);
 
 }
 
-function choseQuizz(){   
+function changeSreens(){
     const screenTwo = document.querySelector('.quiz-open');
     screenTwo.classList.remove('hidden');
 
     const screenOne = document.querySelector('.screen-one');
     screenOne.classList.add('hidden');
-
-}
-
-function success(response){
-    console.log(response)
 }
 
 function createQuizz(){
