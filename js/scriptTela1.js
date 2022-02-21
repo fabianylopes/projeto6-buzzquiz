@@ -1,7 +1,7 @@
+let objectIDquiz = [];
+let quiz; //para uso em reload no scriptTela2
 
-console.log(objectYourQuiz);
 
-//const quizzUsersKey = "quizzes";
 
 function usersQuizzes(){
 
@@ -27,7 +27,7 @@ function usersQuizzes(){
     }
 }
 
-//usersQuizzes();
+usersQuizzes();
 getQuizzes();
 
 // localStorage.setItem("nome", "João");
@@ -47,7 +47,7 @@ function quizzesList(response){
 
     for(let i = 0; i < info.length; i++){
         quizzes.innerHTML += `
-        <div class="quizzes-list" onclick="getSpecificQuizz(${info[i].id})">
+        <div class="quizzes-list" onclick="showQuizz(${info[i].id})">
             <img src="${info[i].image}">
             <div class="overlay"></div>
             <div class="title">${info[i].title}</div>
@@ -56,79 +56,30 @@ function quizzesList(response){
     }
 }
 
-function getSpecificQuizz(id){
+function showQuizz(id){
+    quiz = id; //para tela2
     const promise = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${id}`);
-    promise.then(showQuizz);
+    promise.then(success);
 }
 
-
-
-function showQuizz(response){   
-    changeSreens();
-    
-    let info = response.data;
-    
-    const header = document.querySelector('.quiz-open');
-    header.innerHTML = `
-    
-
-    <div class="quiz-header">
-        <p>${info.title}</p>
-    </div>
-    <div class="quiz-body">
-        <div class="quiz-questionbox">
-
-            for
-            <div class="quiz-questiontext">
-                <p>${info.questions.title}</p>
-            </div>
-            <div class="quiz-answeroptions">
-                <div class="column1-answers">
-                    <div class="answer-option">
-                        <img class="answer-img" src="https://http.cat/411.jpg" alt="figura para resposta" />
-                        <span>Sim</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-    `
-
-            
-
-
-
-    let question = info.questions;
-
-    // const questionTitle = document.querySelector('.quiz-questionbox');
-    // questionTitle.innerHTML = '';
-    
-    // for(let i = 0; i < question.length; i++){
-    //     questionTitle.innerHTML += `
-    //     <div class="quiz-questiontext">
-    //         <p>${question[i].title}</p>
-    //     </div>
-    //     `
-    // }
-
-
-
-    console.log(info);
-
-}
-
-function changeSreens(){
+function choseQuizz(){   
     const screenTwo = document.querySelector('.quiz-open');
     screenTwo.classList.remove('hidden');
 
     const screenOne = document.querySelector('.screen-one');
     screenOne.classList.add('hidden');
+
+    displayQuiz();  //função em scriptTela2
+}
+
+function success(response){
+    objectIDquiz = response.data;
+    console.log(objectIDquiz);
+    choseQuizz();
 }
 
 function createQuizz(){
-    const screenThree = document.querySelector('.your-quiz-basic-info');
+    const screenThree = document.querySelector('.your-quiz');
     screenThree.classList.remove('hidden');
 
     const screenOne = document.querySelector('.screen-one');

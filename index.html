@@ -20,26 +20,27 @@
     <header>BuzzQuizz</header>
     <div class="container">
         <!--Layout TELA1 - Lista de quizzes-->
-        
+
         <article class="screen-one">
 
             <div class="user-quizzes">
 
-                <div class="created-quizzes hidden">
+                <div class="created-quizzes">
                     <div class="top">
                         <div class="header">Seus Quizzes</div>
                         <img onclick="createQuizz()" src="./assets/plus.png">
                     </div>
                     <div class="quizzes-created">
                         <div class="quizzes-list">
-                            <img src="https://rollingstone.uol.com.br/media/_versions/bob-esponja-lgbtq-reprod_widelg.jpg">
+                            <img
+                                src="https://rollingstone.uol.com.br/media/_versions/bob-esponja-lgbtq-reprod_widelg.jpg">
                             <div class="overlay"></div>
                             <div class="title">Title</div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="create-quizz hidden">
+
+                <div class="create-quizz">
                     <h1>Você não criou nenhum<br> quizz ainda :(</h1>
                     <button onclick="createQuizz()">Criar Quizz</button>
                 </div>
@@ -56,13 +57,46 @@
 
 
         <!--Layout TELA2- Depois de abrir o quiz-->
-        <article class="quiz-open hidden">
-            
+        <article class="quiz-selected">
+            <div class="quiz-open hidden">
+                <div class="quiz-header">
+                    <p></p>
+                </div>
+                <div class="quiz-body">
+                    <div class="quiz-questionbox">
+                        <div class="quiz-questiontext" data-identifier="question">
+                            <p></p>
+                        </div>
+                        <div class="quiz-answeroptions">
+
+                            <div class="answer-option" data-identifier="answer">
+                                <img class="answer-img" src="" alt="figura para resposta" />
+                                <span></span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="end-quiz hidden">
+                <div class="result-box" data-identifier="quizz-result">
+                    <div class="points-result">
+                        <h1></h1>
+                    </div>
+                    <div class="more-info">
+                        <img src="" alt="Figura - Resultado do Quiz" />
+                        <div class="message"></div>
+                    </div>
+                </div>
+                <button class="reload-quiz" onclick="reloadQuiz()">Reiniciar Quiz</button>
+                <button class="go-home" onclick="goHome()">Voltar pra Home</button>
+            </div>
         </article>
+
 
         <!--Layout TELA3 - Criar quizzes-->
 
-  
+
         <article class="your-quiz hidden">
             <div class="your-quiz-basic-info">
                 <p>Comece pelo começo</p>
@@ -70,23 +104,54 @@
                 <input type="text" id="your-quiz-URL" placeholder="URL da imagem do seu quiz">
                 <input type="text" id="your-quiz-questions" placeholder="Quantidade de pergintas do quiz">
                 <input type="text" id="your-quiz-levels" placeholder="Quantidade de níveis do quiz">
-                <button onclick="YourQuizInfo()" >Prosseguir pra criar perguntas</button>
+                <button onclick="YourQuizInfo()">Prosseguir pra criar perguntas</button>
             </div>
 
         </article>
 
+        <article class="your-quiz-question hidden">
+            <p>Crie suas perguntas</p>
+            <div class="your-quiz-question-container" id="question1">
+                <span>Pergunta 1</span>
+                <input type="text" id="your-quiz-question-tittle" placeholder="Texto da pergunta">
+                <input type="text" id="your-quiz-question-color" placeholder="Cor de fundo da pergunta">
+                <span>Resposta correta</span>
+                <input type="text" id="your-quiz-question-right" placeholder="Resposta correta">
+                <input type="text" id="your-quiz-question-text" placeholder="URL da imagem">
+                <span>Respostas incorretas</span>
+                <input type="text" id="your-quiz-question-1" placeholder="Resposta incorreta 1">
+                <input type="text" id="your-quiz-question-URL-1" placeholder="URL da imagem 1">
+                <input type="text" id="your-quiz-question-2" placeholder="Resposta incorreta 2">
+                <input type="text" id="your-quiz-question-URL-2" placeholder="URL da imagem 2">
+                <input type="text" id="your-quiz-question-3" placeholder="Resposta incorreta 3">
+                <input type="text" id="your-quiz-question-URL-3" placeholder="URL da imagem 3">
 
-        <article class="your-quiz-levels">
-            <div class="your-quiz-level">
+            </div>
+            <div class="your-quiz-question-container" id="question2">
+                <span id="questionHidden">Pergunta 2 <img onclick="questions(this)" src="Vector.png"
+                        id="question-icon"></span>
+
+            </div>
+
+        </article>
+
+        <article class="your-quiz-levels hidden">
+            <div class="your-quiz-level-container">
                 <p>Agora, decida os níveis!</p>
-                <span>Nível 1</span>
+                <span>Nível 1 </span>
                 <input type="text" id="your-quiz-level-tittle" placeholder="Título do nível">
                 <input type="text" id="your-quiz-level-percent" placeholder="% de acerto mínima">
                 <input type="text" id="your-quiz-level-URL" placeholder="URL da imagem do nível">
                 <input type="text" id="your-quiz-level-text" placeholder="Descrição do nível">
-                <button onclick="yourQuizzLevel()" >Finalizar Quizz</button>
+
             </div>
+            <div class="your-quiz-level-container" id="level2">
+                <span id="levelHidden">Nível 2 <img onclick="Level(this)" src="Vector.png" id="question-icon"></span>
+
+            </div>
+
         </article>
+
 
     </div>
 
@@ -94,6 +159,7 @@
     <script src="./js/scriptTela3.js"></script>
     <script src="./js/scriptTela1.js"></script>
     <script src="./js/scriptTela2.js"></script>
+
 </body>
 
 </html>
