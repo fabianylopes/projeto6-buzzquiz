@@ -80,7 +80,7 @@ function success(response){
 }
 
 function createQuizz(){
-    const screenThree = document.querySelector('.your-quiz-basic-info');
+    const screenThree = document.querySelector('.your-quiz');
     screenThree.classList.remove('hidden');
 
     const screenOne = document.querySelector('.screen-one');

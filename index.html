@@ -20,7 +20,7 @@
     <header>BuzzQuizz</header>
     <div class="container">
         <!--Layout TELA1 - Lista de quizzes-->
-        
+
         <article class="screen-one">
 
             <div class="user-quizzes">
@@ -32,13 +32,14 @@
                     </div>
                     <div class="quizzes-created">
                         <div class="quizzes-list">
-                            <img src="https://rollingstone.uol.com.br/media/_versions/bob-esponja-lgbtq-reprod_widelg.jpg">
+                            <img
+                                src="https://rollingstone.uol.com.br/media/_versions/bob-esponja-lgbtq-reprod_widelg.jpg">
                             <div class="overlay"></div>
                             <div class="title">Title</div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="create-quizz">
                     <h1>Você não criou nenhum<br> quizz ainda :(</h1>
                     <button onclick="createQuizz()">Criar Quizz</button>
@@ -51,7 +52,7 @@
                 <div class="header">Todos os Quizzes</div>
                 <div class="all-quizzes">
                 </div>
-           </div>
+            </div>
         </article>
 
 
@@ -60,20 +61,18 @@
             <div class="quiz-header">
                 <p></p>
             </div>
-            <div class="quiz-body"> 
+            <div class="quiz-body">
                 <div class="quiz-questionbox">
                     <div class="quiz-questiontext">
                         <p></p>
                     </div>
                     <div class="quiz-answeroptions">
-                        
+
                         <div class="answer-option">
-                            <img class="answer-img"
-                                src=""
-                                alt="figura para resposta" />
+                            <img class="answer-img" src="" alt="figura para resposta" />
                             <span></span>
                         </div>
-        
+
                     </div>
                 </div>
             </div>
@@ -81,7 +80,7 @@
 
         <!--Layout TELA3 - Criar quizzes-->
 
-  
+
         <article class="your-quiz hidden">
             <div class="your-quiz-basic-info">
                 <p>Comece pelo começo</p>
@@ -94,27 +93,31 @@
 
         </article>
 
-     <article class="your-quiz-question hidden">
+        <article class="your-quiz-question hidden">
             <p>Crie suas perguntas</p>
-        <div class="your-quiz-question-container" >
-            <span>Pergunta 1</span>
-            <input type="text" id="your-quiz-question-tittle" placeholder="Texto da pergunta">
-            <input type="text" id="your-quiz-question-color" placeholder="Cor de fundo da pergunta">
-            <span>Resposta correta</span>
-            <input type="text" id="your-quiz-question-right" placeholder="Resposta correta">
-            <input type="text" id="your-quiz-question-text" placeholder="URL da imagem">
-            <span>Respostas incorretas</span>
-            <input type="text" id="your-quiz-question-1" placeholder="Resposta incorreta 1">
-            <input type="text" id="your-quiz-question-URL-1" placeholder="URL da imagem 1">
-            <input type="text" id="your-quiz-question-2" placeholder="Resposta incorreta 2">
-            <input type="text" id="your-quiz-question-URL-2" placeholder="URL da imagem 2">
-            <input type="text" id="your-quiz-question-3" placeholder="Resposta incorreta 3">
-            <input type="text" id="your-quiz-question-URL-3" placeholder="URL da imagem 3">
+            <div class="your-quiz-question-container" id="question1">
+                <span>Pergunta 1</span>
+                <input type="text" id="your-quiz-question-tittle" placeholder="Texto da pergunta">
+                <input type="text" id="your-quiz-question-color" placeholder="Cor de fundo da pergunta">
+                <span>Resposta correta</span>
+                <input type="text" id="your-quiz-question-right" placeholder="Resposta correta">
+                <input type="text" id="your-quiz-question-text" placeholder="URL da imagem">
+                <span>Respostas incorretas</span>
+                <input type="text" id="your-quiz-question-1" placeholder="Resposta incorreta 1">
+                <input type="text" id="your-quiz-question-URL-1" placeholder="URL da imagem 1">
+                <input type="text" id="your-quiz-question-2" placeholder="Resposta incorreta 2">
+                <input type="text" id="your-quiz-question-URL-2" placeholder="URL da imagem 2">
+                <input type="text" id="your-quiz-question-3" placeholder="Resposta incorreta 3">
+                <input type="text" id="your-quiz-question-URL-3" placeholder="URL da imagem 3">
 
-        </div>    
-        <div class="your-quiz-question-container" >
-            <span>Pergunta 2<img onclick="questions()" src="Vector.png" id="question-icon" alt=""></span>
-            <div class="input hidden"> 
+            </div>
+            <div class="your-quiz-question-container" id="question2">
+                <span id="questionHidden">Pergunta 2 <img onclick="questions(this)" src="Vector.png"
+                        id="question-icon"></span>
+
+            </div>
+
+            <!--    <div class="input2 hidden"> 
             <input type="text" id="your-quiz-question-tittle" placeholder="Texto da pergunta">
             <input type="text" id="your-quiz-question-color" placeholder="Cor de fundo da pergunta">
         <span>Resposta correta</span>
@@ -128,10 +131,10 @@
             <input type="text" id="your-quiz-question-3" placeholder="Resposta incorreta 3">
             <input type="text" id="your-quiz-question-URL-3" placeholder="URL da imagem 3"> 
         </div> 
-    </div>
-        <div class="your-quiz-question-container">
-            <span>Pergunta 3 <img onclick="questions()" src="Vector.png" id="question-icon" alt=""></span> 
-            <div class="input hidden"> 
+     </div>
+        <div class="your-quiz-question-container"  id="question3">
+     <span>Pergunta 3 <img onclick="questions(this)" src="Vector.png" id="question-icon" alt=""></span> 
+            <div class="input3 hidden"> 
                 <input type="text" id="your-quiz-question-tittle" placeholder="Texto da pergunta">
                 <input type="text" id="your-quiz-question-color" placeholder="Cor de fundo da pergunta">
             <span>Resposta correta</span>
@@ -144,22 +147,28 @@
                 <input type="text" id="your-quiz-question-URL-2" placeholder="URL da imagem 2">
                 <input type="text" id="your-quiz-question-3" placeholder="Resposta incorreta 3">
                 <input type="text" id="your-quiz-question-URL-3" placeholder="URL da imagem 3"> 
-        </div>
-       <button onclick="yourQuizzQuestion()">Prosseguir para criar níveis</button>
-        
-    </article>        
+       </div>-->
+    
 
-        <article class="your-quiz-levels hidden">
-            <div class="your-quiz-level" >
-                <p>Agora, decida os níveis!</p>
-                <span>Nível 1</span>
-                <input type="text" id="your-quiz-level-tittle" placeholder="Título do nível">
-                <input type="text" id="your-quiz-level-percent" placeholder="% de acerto mínima">
-                <input type="text" id="your-quiz-level-URL" placeholder="URL da imagem do nível">
-                <input type="text" id="your-quiz-level-text" placeholder="Descrição do nível">
-                <button onclick="yourQuizzLevel()">Finalizar Quizz</button>
-            </div>
-        </article>
+
+     </article>
+
+     <article class="your-quiz-levels hidden">
+        <div class="your-quiz-level-container">
+            <p>Agora, decida os níveis!</p>
+            <span >Nível 1 </span>
+            <input type="text" id="your-quiz-level-tittle" placeholder="Título do nível">
+            <input type="text" id="your-quiz-level-percent" placeholder="% de acerto mínima">
+            <input type="text" id="your-quiz-level-URL" placeholder="URL da imagem do nível">
+            <input type="text" id="your-quiz-level-text" placeholder="Descrição do nível">
+
+        </div>
+        <div class="your-quiz-level-container" id="level2">
+            <span id="levelHidden">Nível 2 <img onclick="Level(this)" src="Vector.png" id="question-icon"></span>
+            
+        </div>
+
+     </article>
 
 
     </div>
