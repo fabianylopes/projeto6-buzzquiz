@@ -49,7 +49,7 @@ function displayQuiz() {
 }
 
 function autoScroll() {
-    const startQuiz = document.querySelector("body");
+    const startQuiz = document.querySelector(".quiz-header");
     startQuiz.scrollIntoView();
 }
 
@@ -102,11 +102,10 @@ function verifyAnswer(div) {
 
 function getResult() {
     const result = Math.floor(acertos / questionsQnt * 100);
-    console.log(result);
 
     let level = null;
     allLevels = objectIDquiz.levels;
-    console.log(allLevels);
+
     for (let i = 0; i < allLevels.length; i++) {
         if (allLevels[i].minValue <= result) {
             if (level == null) {
@@ -117,8 +116,6 @@ function getResult() {
             }
         }
     }
-    console.log(level);
-
     setTimeout(showResult, 2000, level, result);
 }
 
@@ -127,6 +124,7 @@ function showResult(i, pontuacao) {
     lastPart.classList.remove("hidden");
     let showResult = document.querySelector(".result-box");
     showResult.innerHTML = `
+    <div class="result-box">
         <div class="points-result">
             <h1>${pontuacao}% de acerto: ${allLevels[i].title}</h1>
         </div>
@@ -134,6 +132,7 @@ function showResult(i, pontuacao) {
             <img src="${allLevels[i].image}" alt="Figura - Resultado do Quiz" />
             <span class="message">${allLevels[i].text}</span>
         </div>
+    </div>
     `
     lastPart.scrollIntoView({ block: "center", behavior: "smooth" });
 }
@@ -157,5 +156,6 @@ function goHome() {
     const screenOne = document.querySelector('.screen-one');
     screenOne.classList.remove('hidden');
 
-    autoScroll()
+    const startHome = document.querySelector(".created-quizzes");
+    startHome.scrollIntoView();
 }
