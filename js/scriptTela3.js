@@ -198,27 +198,27 @@ function questions() {
         objectYourQuiz = {
             questions: [
                 {
-                    title: yourQuizzQuestionTittle[i],
-                    color: yourQuizzQuestionColor[i],
+                    title: yourQuizzQuestionTittle,
+                    color: yourQuizzQuestionColor,
                     answers: [
                         {
-                            text: yourQuizzQuestionRigth[i],
-                            image: yourQuizzQuestionURL[i],
+                            text: yourQuizzQuestionRigth,
+                            image: yourQuizzQuestionURL,
                             isCorrectAnswer: true
                         },
                         {
-                            text: yourQuizzQuestionWrong1[i],
-                            image: yourQuizzQuestionWrong1URL[i],
+                            text: yourQuizzQuestionWrong1,
+                            image: yourQuizzQuestionWrong1URL,
                             isCorrectAnswer: false
                         },
                         {
-                            text: yourQuizzQuestionWrong2[i],
-                            image: yourQuizzQuestionWrong2URL[i],
+                            text: yourQuizzQuestionWrong2,
+                            image: yourQuizzQuestionWrong2URL,
                             isCorrectAnswer: false
                         },
                         {
-                            text: yourQuizzQuestionWrong3[i],
-                            image: yourQuizzQuestionWrong3URL[i],
+                            text: yourQuizzQuestionWrong3,
+                            image: yourQuizzQuestionWrong3URL,
                             isCorrectAnswer: false
                         }
                     ]
