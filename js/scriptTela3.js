@@ -63,7 +63,7 @@ function YourQuizInfo() {
 
 let Tela3_fase2 = document.querySelector(".your-quiz-question");
 
-let yourQuizzQuestionTittle 
+let yourQuizzQuestionTittle = []
 let yourQuizzQuestionColor = []
 let yourQuizzQuestionRigth = []
 let yourQuizzQuestionURL = []
@@ -92,34 +92,12 @@ function yourQuizzQuestion() {
     yourQuizzQuestionWrong3URL = document.querySelector('#your-quiz-question-URL-3').value;
 
 
-    const hexadecimalColor = ['a', 'b', 'c', 'd', 'e', 'f', 'A', 'B', 'C', 'D', 'E', 'F',]
+    const hexadecimalColor = ['a', 'b', 'c', 'd', 'e', 'f', 'A', 'B', 'C', 'D', 'E', 'F']
     const number = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']  //verificar numeros
 
-    
-    if (yourQuizzQuestionTittle.length < 20) {
-        alert("o título da pergunta do seu quiz deve ter no minimo 20 carateres!!");
-        yourQuizzQuestionTittle.value = ""
-        return
-    }
-    if (yourQuizzQuestionTittle === ""){
-        alert("campo vazio, dê um nome à sua pergunta")
-    }
-    if ((yourQuizzQuestionColor.includes('#') === false) || (yourQuizzQuestionColor.length == !7)) {
-        alert("informe uma cor válida!!");
-        yourQuizzQuestionColor.value = ""
-        return
-    }
-
-    
-  /*   if ((yourQuizzQuestionURL.includes('https:') === false) || (yourQuizzQuestionWrong1URL.includes('https:') === false)
-        (yourQuizzQuestionWrong2URL.includes('https:') === false)(yourQuizzQuestionWrong3URL.includes('https:') === false)) {
-        alert("a imagem deve ter um formato URL!!");
-        yourQuizzQuestionURL.value = ""
-        yourQuizzQuestionWrong1.value = ""
-        yourQuizzQuestionWrong2URL.value = ""
-        yourQuizzQuestionWrong3URL.value = ""
-        return
-    }  */
+ 
+  validateQuestion(yourQuizzQuestionTittle, yourQuizzQuestionColor,yourQuizzQuestionURL,yourQuizzQuestionWrong1URL,
+    yourQuizzQuestionWrong2URL,yourQuizzQuestionWrong3URL)
 
     objectYourQuiz = {
         questions: [
@@ -157,6 +135,36 @@ function yourQuizzQuestion() {
 
 }
 
+//validações das perguntas
+
+function validateQuestion(Tittle, Color, URL,URL1, URL2,URL3){
+
+    if (Tittle.length < 20) {
+    alert("o título da pergunta do seu quiz deve ter no minimo 20 carateres!!");
+    Tittle.value = ""
+    return
+}
+if (Tittle === ""){
+    alert("campo vazio, dê um nome à sua pergunta")
+}
+if ((Color.includes('#') === false) || (Color.length == !7)) {
+    alert("informe uma cor válida!!");
+    Color.value = ""
+    return
+}
+
+if ((URL.includes('https:') === false) || (URL1.includes('https:') === false)
+    (URL2.includes('https:') === false)(URL3.includes('https:') === false)) {
+    alert("a imagem deve ter um formato URL!!");
+    URL.value = ""
+    URL1.value = ""
+    URL2.value = ""
+    URL3.value = ""
+    return
+} 
+}
+
+
 let tela3_perguntas = document.querySelector('#question2')
 let icon = document.querySelector("#question-icon");
 
@@ -173,28 +181,31 @@ function questions() {
         tela3_perguntas.innerHTML += `
        <span>Pergunta ${[i + 1]}</span>
   
-       <input type="text" id="your-quiz-question-tittle" placeholder="Texto da pergunta" >
-       <input type="text" id="your-quiz-question-color" placeholder="Cor de fundo da pergunta">
+       <input type="text" id="your-quiz-question-tittle" placeholder="Texto da pergunta" data-identifier="question">
+       <input type="text" id="your-quiz-question-color" placeholder="Cor de fundo da pergunta" data-identifier="question">
        <span>Resposta correta</span>
  
-       <input type="text" id="your-quiz-question-right" placeholder="Resposta correta">
-       <input type="text" id="your-quiz-question-text" placeholder="URL da imagem">
+       <input type="text" id="your-quiz-question-right" placeholder="Resposta correta" data-identifier="question">
+       <input type="text" id="your-quiz-question-text" placeholder="URL da imagem" data-identifier="question">
     
        <span>Respostas incorretas</span>
 
-       <input type="text" id="your-quiz-question-1" placeholder="Resposta incorreta 1">
-       <input type="text" id="your-quiz-question-URL-1" placeholder="URL da imagem 1">
+       <input type="text" id="your-quiz-question-1" placeholder="Resposta incorreta 1" data-identifier="question">
+       <input type="text" id="your-quiz-question-URL-1" placeholder="URL da imagem 1" data-identifier="question">
    
    
-       <input type="text" id="your-quiz-question-2" placeholder="Resposta incorreta 2">
-       <input type="text" id="your-quiz-question-URL-2" placeholder="URL da imagem 2">
+       <input type="text" id="your-quiz-question-2" placeholder="Resposta incorreta 2" data-identifier="question">
+       <input type="text" id="your-quiz-question-URL-2" placeholder="URL da imagem 2" data-identifier="question">
   
 
     
-       <input type="text" id="your-quiz-question-3" placeholder="Resposta incorreta 3">
-       <input type="text" id="your-quiz-question-URL-3" placeholder="URL da imagem 3"> 
+       <input type="text" id="your-quiz-question-3" placeholder="Resposta incorreta 3" data-identifier="question">
+       <input type="text" id="your-quiz-question-URL-3" placeholder="URL da imagem 3" data-identifier="question"> 
  
      `
+     validateQuestion(yourQuizzQuestionTittle, yourQuizzQuestionColor,yourQuizzQuestionURL,yourQuizzQuestionWrong1URL,
+     yourQuizzQuestionWrong2URL,yourQuizzQuestionWrong3URL)
+
         objectYourQuiz = {
             questions: [
                 {
@@ -287,14 +298,15 @@ function yourQuizzLevel() {
 
 
     }
+   
 
-
-
-}
-
-function quizError(error) {
-    console.log(error.response)
-    console.log("deu chabu")
+let promise = axios.post(BUZZQUIZZ_API, objectYourQuiz)
+     
+promise.then(function(resposta){
+console.log(resposta.data);
+console.log("#vaidarcerto");
+})
+promise.catch(quizError);
 
 }
 
@@ -309,10 +321,10 @@ function Level(){
     
     tela3_levels.innerHTML+= `
     <span>Nível ${[i+1]} </span>
-    <input type="text" id="your-quiz-level-tittle" placeholder="Título do nível">
-    <input type="text" id="your-quiz-level-percent" placeholder="% de acerto mínima">
-    <input type="text" id="your-quiz-level-URL" placeholder="URL da imagem do nível">
-    <input type="text" id="your-quiz-level-text" placeholder="Descrição do nível">
+    <input type="text" id="your-quiz-level-tittle" placeholder="Título do nível" data-identifier="level">
+    <input type="text" id="your-quiz-level-percent" placeholder="% de acerto mínima" data-identifier="level">
+    <input type="text" id="your-quiz-level-URL" placeholder="URL da imagem do nível" data-identifier="level">
+    <input type="text" id="your-quiz-level-text" placeholder="Descrição do nível" data-identifier="level">
     
     `
 
@@ -323,7 +335,13 @@ function Level(){
                 image: yourQuizzLevelURL,
                 text: yourQuizzLevelText,
                 minValue: 50
-            }
+            },
+            {
+                title: yourQuizzLevelTittle,
+                image: yourQuizzLevelURL,
+                text: yourQuizzLevelText,
+                minValue:0
+         }
 
         ]
     }
@@ -378,14 +396,7 @@ function Level(){
   
 }
 
-  let promise = axios.post(BUZZQUIZZ_API, objectYourQuiz)
-     
-    promise.then(function(resposta){
-    console.log(resposta.data);
-    console.log("#vaidarcerto");
-    })
-    promise.catch(quizError);
-    
+
 tela3_levels.innerHTML+= `<button onclick="yourQuizzLevel()">Finalizar Quizz</button>
 `
 }
