@@ -111,7 +111,7 @@ function yourQuizzQuestion() {
     }
 
     
-    if ((yourQuizzQuestionURL.includes('https:') === false) || (yourQuizzQuestionWrong1URL.includes('https:') === false)
+  /*   if ((yourQuizzQuestionURL.includes('https:') === false) || (yourQuizzQuestionWrong1URL.includes('https:') === false)
         (yourQuizzQuestionWrong2URL.includes('https:') === false)(yourQuizzQuestionWrong3URL.includes('https:') === false)) {
         alert("a imagem deve ter um formato URL!!");
         yourQuizzQuestionURL.value = ""
@@ -119,7 +119,7 @@ function yourQuizzQuestion() {
         yourQuizzQuestionWrong2URL.value = ""
         yourQuizzQuestionWrong3URL.value = ""
         return
-    } 
+    }  */
 
     objectYourQuiz = {
         questions: [
@@ -153,7 +153,7 @@ function yourQuizzQuestion() {
     }
 
  console.log(objectYourQuiz)
-   
+ yourQuizzLevel()
 
 }
 
@@ -287,14 +287,7 @@ function yourQuizzLevel() {
 
 
     }
-    
-    let promise = axios.post(BUZZQUIZZ_API, objectYourQuiz)
-     
-    promise.then(function(resposta){
-    console.log(resposta.data);
-    console.log("#vaidarcerto");
-    })
-    promise.catch(quizError);
+
 
 
 }
@@ -326,9 +319,9 @@ function Level(){
     objectYourQuiz = {
         levels: [
             {
-                title: yourQuizzLevelTittle[i],
-                image: yourQuizzLevelURL[i],
-                text: yourQuizzLevelText[i],
+                title: yourQuizzLevelTittle,
+                image: yourQuizzLevelURL,
+                text: yourQuizzLevelText,
                 minValue: 50
             }
 
@@ -371,14 +364,28 @@ function Level(){
                 image: yourQuizzLevelURL,
                 text: yourQuizzLevelText,
                 minValue: 50
-            }
-    
+            },
+             {
+                    title: yourQuizzLevelTittle,
+                    image: yourQuizzLevelURL,
+                    text: yourQuizzLevelText,
+                    minValue:0
+             }
         ]
+        
     
     }
-   
+  
 }
 
+  let promise = axios.post(BUZZQUIZZ_API, objectYourQuiz)
+     
+    promise.then(function(resposta){
+    console.log(resposta.data);
+    console.log("#vaidarcerto");
+    })
+    promise.catch(quizError);
+    
 tela3_levels.innerHTML+= `<button onclick="yourQuizzLevel()">Finalizar Quizz</button>
 `
 }
