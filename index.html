@@ -57,7 +57,7 @@
 
 
         <!--Layout TELA2- Depois de abrir o quiz-->
-        <article class="quiz-selected hidden">
+        <article class="quiz-selected">
             <div class="quiz-open hidden">
                 <div class="quiz-header">
                     <p></p>
@@ -78,32 +78,19 @@
                     </div>
                 </div>
             </div>
-            <div class="quiz-body">
-                <div class="quiz-questionbox">
-                    <div class="quiz-questiontext">
-                        <p></p>
+            <div class="end-quiz hidden">
+                <div class="result-box" data-identifier="quizz-result">
+                    <div class="points-result">
+                        <h1></h1>
                     </div>
-                    <div class="quiz-answeroptions">
-
-                        <div class="answer-option">
-                            <img class="answer-img" src="" alt="figura para resposta" />
-                            <span></span>
-                        </div>
-
-
-                        <div class="end-quiz hidden">
-                            <div class="result-box" data-identifier="quizz-result">
-                                <div class="points-result">
-                                    <h1></h1>
-                                </div>
-                                <div class="more-info">
-                                    <img src="" alt="Figura - Resultado do Quiz" />
-                                    <div class="message"></div>
-                                </div>
-                            </div>
-                            <button class="reload-quiz" onclick="reloadQuiz()">Reiniciar Quiz</button>
-                            <button class="go-home" onclick="goHome()">Voltar pra Home</button>
-                        </div>
+                    <div class="more-info">
+                        <img src="" alt="Figura - Resultado do Quiz" />
+                        <div class="message"></div>
+                    </div>
+                </div>
+                <button class="reload-quiz" onclick="reloadQuiz()">Reiniciar Quiz</button>
+                <button class="go-home" onclick="goHome()">Voltar pra Home</button>
+            </div>
         </article>
 
 
@@ -143,7 +130,7 @@
             <div class="your-quiz-question-container" id="question2">
                 <span id="questionHidden">Pergunta 2 <img onclick="questions(this)" src="Vector.png"
                         id="question-icon"></span>
-            
+
             </div>
 
         </article>
